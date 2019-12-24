@@ -120,7 +120,7 @@ export default class DalComponent {
     }
 
     async setBondOrder(pairName, price, paymentCurrency, bondsAmount) {
-        if (price <= 0 || price >= 1) {
+        if (price <= 0 || price >= 100) {
             return;
         }
         // price = Math.round(price * 100) / 100;
@@ -139,7 +139,7 @@ export default class DalComponent {
                 ContractEnum.AUCTION,
                 'addBuyBondOrder',
                 [contractPrice, position],
-                this.assets[paymentCurrency],
+                'WAVES',
                 bondsAmount * price
             );
         }
